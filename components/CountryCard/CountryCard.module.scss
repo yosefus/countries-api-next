@@ -1,0 +1,46 @@
+@use 'sass:color';
+
+@import '../../styles/colors';
+
+.list {
+  list-style: none;
+}
+
+.countryCard {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0 0 0 1rem;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  background: $bg-color;
+
+  span {
+    width: 60px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &:hover {
+    box-shadow: 3px 3px 15px rgb(158, 158, 158);
+  }
+
+  p {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .name {
+    color: $main-text;
+  }
+}
