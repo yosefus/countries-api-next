@@ -70,7 +70,7 @@ export default function Country({ data, name }) {
       animate={{ x: 0, transition: { type: 'spring', duration: 1 } }}
       className={styles.container}
     >
-      {<Image priority={true} loader={myLoader} src={flags.svg} layout="fill" objectFit="cover" />}
+      {<Image alt="flag" priority={true} loader={myLoader} src={flags.svg} layout="fill" objectFit="cover" />}
       <HomeBtn />
       <motion.div
         initial={{ x: -900 }}

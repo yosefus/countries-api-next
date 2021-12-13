@@ -23,7 +23,16 @@ export default function CountryCard({ country }) {
           <div className={styles.countryCard}>
             <p className={styles.name}>{name.length > 20 ? `${name.substring(0, 20)}...` : name}</p>
             <span>
-              {<Image priority={true} loader={myLoader} src={flag} layout="fill" objectFit="cover" />}
+              {
+                <Image
+                  alt="flag"
+                  priority={true}
+                  loader={myLoader}
+                  src={flag}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              }
             </span>
           </div>
         </a>
