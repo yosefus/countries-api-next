@@ -8,10 +8,13 @@
   background: $bg-page;
   min-height: 100vh;
   padding: 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: repete(1fr);
-  gap: 1rem;
+
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repete(1fr);
+    gap: 1rem;
+  }
 
   @include desktop() {
     grid-template-columns: 1fr 1fr;

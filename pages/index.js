@@ -29,11 +29,13 @@ export default function Home({ data }) {
 
       <main className={styles.main}>
         <SearchBar searchInputHandle={searchInputHandle} />
-        <motion.ul variants={contries} initial="hidden" animate="show" className={styles.cardContainer}>
-          {printData.map((country, i) => (
-            <CountryCard key={`key${i}`} country={country} />
-          ))}
-        </motion.ul>
+        <div className={styles.cardContainer}>
+          <motion.ul variants={contries} initial="hidden" animate="show">
+            {printData.map((country, i) => (
+              <CountryCard key={`key${i}`} country={country} />
+            ))}
+          </motion.ul>
+        </div>
       </main>
 
       <Footer />
