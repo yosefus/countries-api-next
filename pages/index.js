@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import { CountryCard, Footer, SearchBar } from '../components';
+import { CountryCard, Footer, SearchBar, ServerError } from '../components';
 
 // style
 import styles from '../styles/Home.module.scss';
@@ -9,6 +9,8 @@ import { Link } from 'next/link';
 
 export default function Home({ data }) {
   const [searchInput, setSearchInput] = useState('');
+
+  if (!data) return <ServerError />;
 
   const searchInputHandle = (e) => setSearchInput(e.target.value);
 
@@ -44,9 +46,13 @@ export default function Home({ data }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch('https://restcountries.com/v2/all');
+  try {
+    const res = await fetch('https://restcountries.com/v2/all');
 
-  const data = await res.json();
+    const data = await res.json();
 
-  return { props: { data: data } };
+    return { props: { data: data } };
+  } catch (error) {
+    return { props: { data: false } };
+  }
 };
