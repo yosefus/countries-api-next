@@ -4,10 +4,12 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 import { AiOutlinePlus } from 'react-icons/ai';
-import { HomeBtn } from '../../components';
+import { HomeBtn, ServerError } from '../../components';
 
 export default function Country({ data, name }) {
   const [transe, setTranse] = useState(false);
+
+  if (!data) return <ServerError />;
 
   const {
     name: _name,
@@ -129,5 +131,6 @@ export const getServerSideProps = async (context) => {
     return { props: { data: data[0], name } };
   } catch (error) {
     console.log(error.message || error);
+    return { props: { data: false, name: false } };
   }
 };
